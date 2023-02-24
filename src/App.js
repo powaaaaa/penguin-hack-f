@@ -1,24 +1,18 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
-import TodoList from './Components/TodoList';
-import axios from 'axios';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Home from './Components/Home';
+import Page1 from './Components/Page1';
 
 function App() {
-  const [imageUrl, setImageUrl] = useState("")
-
-  useEffect(() => {
-    async function getDogImageUrl() {
-      const response = await axios.get("https://dog.ceo/api/breeds/image/random")
-      console.log(response)
-      setImageUrl(response.data.message)
-    }
-    getDogImageUrl()
-  },[])
   return (
-    <div className="App">
-      <immg src={imageUrl} alt="" />
-      <TodoList />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="page1" element={<Page1 />} />
+      </ Routes>
+    </BrowserRouter>
   );
 }
 
