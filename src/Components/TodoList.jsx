@@ -1,65 +1,74 @@
 import { React, useState, useEffect } from 'react';
 import Todo from "./Todo";
+import RadioButton from './RadioButton';
 
 const TodoList = () => {
     const data = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []
-    const [inputText, setInputText] = useState("")
-    const tagDiff = []
-    const tagWill = ["ある！", "そこそこ", "ない…"]
-    const tagKind = ["せいかつ", "イベント", "アイデア"]
-    const [inputTagDiff, setInputTagDiff] = useState()
-    const [inputTagWill, setInputTagWill] = useState()
-    const [inputTagKind, setInputTagKind] = useState()
+    const [inputTodo, setInputTodo] = useState({ 
+        content:"", 
+        difficulty:"かんたん", 
+        motivation:"ある！", 
+        category:"せいかつ" 
+    });
     const [todos, setTodos] = useState(data)
 
     useEffect(() => {
       const json = JSON.stringify(todos)
       localStorage.setItem("todos",json)
-    }, [todos])
-    
+    }, [todos])  
 
     const handleAddTodo = () => {
-        if(inputText === ""){
+        if(inputTodo.content === ""){
             alert("空文字は追加出来ません")
         }else{
             setTodos([
                 ...todos,
                 {
-                    content: inputText,
-                    tagDiff: inputTagDiff,
-                    tagWill: inputTagWill,
-                    tagKind: inputTagKind
+                    content: inputTodo.content,
+                    tagDifficulty: inputTodo.difficulty,
+                    tagMotivation: inputTodo.motivation,
+                    tagCategory: inputTodo.category
                 }
             ])
         }
-        setInputText("")
-        setInputTagDiff("")
-        setInputTagWill("")
-        setInputTagKind("")
+        setInputTodo({ 
+            content:"", 
+            difficulty:"かんたん", 
+            motivation:"ある！", 
+            category:"せいかつ" 
+        });
     }
+
+    const handleChange = (event) => {
+        console.log(event)
+        setInputTodo({
+            ...inputTodo,
+            [event.target.name]:event.target.value
+        });
+    };
+
     return(
         <div>
             <h1>TodoList</h1>
-            <input type="text" value={inputText} onChange={(e) => {setInputText(e.target.value)}}/>
-            <div>{
-                tagDiff.map((tagDiff, index) => 
-                    <input key={index} type="radio" name="難易度" value={tagDiff} onChange={(e) => {setInputTagDiff(e.target.value)}} />)
-                }</div>
-            <div>{
-                tagWill.map((tagWill, index) => 
-                    <input key={index} type="radio" name="やる気" value={tagWill} onChange={(e) => {setInputTagWill(e.target.value)}} />)
-                }</div>
-            <div>{
-                tagKind.map((tagKind, index) => 
-                    <input key={index} type="radio" name="種類" value={tagKind} onChange={(e) => {setInputTagKind(e.target.value)}} />)
-                }</div>
+            <input name="content" type="text" value={inputTodo.content} onChange={handleChange}/>
+            <div className="contents">
+                <RadioButton />
+            </div>
             <button onClick={handleAddTodo}>追加</button>
             <ul style={{listStyle: "none"}}>
                 {
                     todos.map((item, index) => {
                         return (
                             <li key={index}>
-                                <Todo content={item.content} tagDiff={item.tagDiff} tagWill={item.tagWill} tagKind={item.tagKind}/>
+                                <Todo 
+                                    content={item.content} 
+                                    tagDifficulty={item.tagDifficulty} 
+                                    tagMotivation={item.tagMotivation} 
+                                    tagCategory={item.tagCategory}
+                                    index={index}
+                                    todos={todos}
+                                    setTodos={setTodos}
+                                />
                             </li>
                         )
                     })
