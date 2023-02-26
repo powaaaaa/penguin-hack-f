@@ -252,6 +252,11 @@ module.exports = {
         '2xl': '0 25px 25px rgb(0 0 0 / 0.15)',
         none: '0 0 #0000',
       },
+      extend: {
+        backgroundImage: theme => ({
+            'back.png': "url('./img/back.png')",
+        })
+      },
       fill: ({ theme }) => ({
         none: 'none',
         ...theme('colors'),

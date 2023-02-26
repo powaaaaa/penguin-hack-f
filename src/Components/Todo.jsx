@@ -8,11 +8,11 @@ const Todo = (props) => {
     }
     
     return (
-        <div>
-            <p>{props.content}</p>
-            <p>{props.tagDifficulty}</p>
-            <p>{props.tagMotivation}</p>
-            <p>{props.tagCategory}</p>
+        <div class="flex items-center">
+            <li>{props.content}</li>
+            <li>{props.tagDifficulty}</li>
+            <li>{props.tagMotivation}</li>
+            <li>{props.tagCategory}</li>
             <button onClick={handleTodoDelete}>完了</button>
         </div>
     )

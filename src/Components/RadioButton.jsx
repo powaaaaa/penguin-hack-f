@@ -25,22 +25,25 @@ const RadioButton =() => {
         <div className="contents">
                         {
                             TAG_VALUE.map(({labelname, values}) =>
-                            <ul className={`${labelname}_list`} key={labelname}>
+                            <ul class="flex flex-row border-2 rounded-2xl" key={labelname}>
                                 <label>{labelname}</label>
+                                <p>
                                 {
                                     values.map((value, valueindex) => 
-                                        <li className="radio-buttons" key={valueindex}>
+                                        <li  key={valueindex}>
                                             <input
                                                 name={labelname}
                                                 type="radio"
                                                 value={value}
                                                 defaultChecked={value === inputTodo[labelname]}
                                                 onChange={handleChange}
+                                                class="hidden"
                                         />
-                                    <span className='radio-span'>{value}</span> 
+                                    <span class="flex flex-row">{value}</span> 
                                         </li>
                                     )
                                 }
+                                </p>
                             </ul>
                             )
                         }
