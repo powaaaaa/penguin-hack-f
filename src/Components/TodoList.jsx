@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
-import Todo from "./Todo";
+import List from './List';
 import RadioButton from './RadioButton';
+import './color.css'
+import Asika from './Asika';
 
 const TodoList = () => {
     const data = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []
@@ -49,37 +51,38 @@ const TodoList = () => {
     };
 
     return(
-        <div>
-            <h1>TodoList</h1>
-            <form class="w-10/12 mx-auto md:max-w-md">
-                <label class="block">
-                    <label >Todoを入力してね</label>
-                    <input class="w-full py-2 border-2 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50" placeholder="todo" name="content" type="text" value={inputTodo.content} onChange={handleChange}/>
-                </label>
+        <div className='flex h-screen'>
+
+            <form className='shadow-md m-7 p-8 w-1/3 box font-semibold subpixel-antialiased'>
                 <div className="contents">
-                    <RadioButton />
+                    <label>Todoを入力してね</label>
+                    <input class="py-2 border-2 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50" placeholder="todo" name="content" type="text" value={inputTodo.content} onChange={handleChange}/>
                 </div>
-                <button class="rounded hover:bg-slate-00" onClick={handleAddTodo}>追加</button>
+
+                <div className="pt-7">
+                    <label>どんなTodo？？</label>
+                    <RadioButton inputTodo={inputTodo} setInputTodo={setInputTodo}/>
+                </div>
+
+                <div>
+                    <button class="place-content-center p-3 rounded hover:bg-slate-200" onClick={handleAddTodo}>追加</button>
+                </div>
+                
             </form>
-            <ul style={{listStyle: "none"}}>
-                {
-                   todos.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <Todo 
-                                    content={item.content} 
-                                    tagDifficulty={item.tagDifficulty} 
-                                    tagMotivation={item.tagMotivation} 
-                                    tagCategory={item.tagCategory}
-                                    index={index}
-                                    todos={todos}
-                                    setTodos={setTodos}
-                                />
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+
+
+            <div className="rounded-lg w-1/3 relative overflow-hidden my-7">
+                <img className='place-content-center absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[25vw] max-w-none' src='https://github.com/penguin-hack-f/penguin-hack-f/blob/main/src/img/todo.png?raw=true' alt="アシカデフォ" />
+                <img className=' absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-[65%] w-[40vw] max-w-none' src='https://github.com/penguin-hack-f/penguin-hack-f/blob/main/src/img/asikaBack2.png?raw=true' alt="background" />
+            </div>
+
+
+            <div className='shadow-md rounded-lg m-7 p-8 box w-1/3'>
+                <div>
+                    <List todos={todos} setTodos={setTodos} />
+                </div>
+            </div>
+
         </div>
     )
 }
