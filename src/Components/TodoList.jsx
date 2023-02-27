@@ -55,7 +55,7 @@ const TodoList = () => {
   return (
     <div className="flex h-screen">
       <form className="shadow-md m-7 p-8 w-1/3 box subpixel-antialiased">
-        <div className="contents">
+        <div className="content">
           <label className="pr-4">Todoを入力してね</label>
           <input
             class="py-2 border-2 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-amber-600"
@@ -64,10 +64,11 @@ const TodoList = () => {
             type="text"
             value={inputTodo.content}
             onChange={handleChange}
+            autoFocus
           />
         </div>
 
-        <div className="pt-7">
+        <div className="pt-7 flex flex-col">
           <label>どんなTodo？？</label>
           <RadioButton inputTodo={inputTodo} setInputTodo={setInputTodo} />
         </div>
@@ -83,15 +84,11 @@ const TodoList = () => {
       </form>
 
       <div className="rounded-lg w-1/3 relative overflow-hidden my-7">
-        <img
-          className="place-content-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[25vw] max-w-none"
-          src="https://github.com/penguin-hack-f/penguin-hack-f/blob/main/src/img/todo.png?raw=true"
-          alt="アシカデフォ"
-        />
+        <Asika status={todos.length}></Asika>
         <img
           className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
 w-[40vw] max-w-none"
-          src="https://github.com/penguin-hack-f/penguin-hack-f/blob/main/src/img/asikaback3.png?raw=true"
+          src="img/asikaback3.png"
           alt="background"
         />
       </div>

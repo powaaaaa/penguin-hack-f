@@ -29,9 +29,9 @@
   color: #61dafb;
 }
 
-.App-background{
-  background-image: url("./img/back.png");
-  background-size:cover;
+.App-background {
+  /* background-image: url("./img/back.png"); */
+  background-size: cover;
 }
 
 @keyframes App-logo-spin {
@@ -46,4 +46,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap");
