@@ -6,14 +6,14 @@ import Asika from './Asika';
 
 const Home = () => {
     return (
-        <div class="flex">
-            <div class="basis-1/4">
+        <div class="flex justify-around">
+            <div >
                 <TodoList />
             </div>
-            <div class="basis-1/2">
-                <Asika />
+            <div className='mt-52'>
+                <Asika/>
             </div>
-            <div class="basis-1/4">
+            <div className='mr-20'>
                 <Link to="/page1">Page1</Link>
             </div>
         </div>

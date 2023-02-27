@@ -9,6 +9,7 @@ const Todo = (props) => {
     
     return (
         <div class="flex items-center">
+            <input type="checkbox" checked="" />
             <li>{props.content}</li>
             <li>{props.tagDifficulty}</li>
             <li>{props.tagMotivation}</li>
