@@ -73,7 +73,7 @@ const TodoList = () => {
 
             <div className="rounded-lg w-1/3 relative overflow-hidden my-7">
                 <img className='place-content-center absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[25vw] max-w-none' src='https://github.com/penguin-hack-f/penguin-hack-f/blob/main/src/img/todo.png?raw=true' alt="アシカデフォ" />
-                <img className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] max-w-none' src='https://github.com/penguin-hack-f/penguin-hack-f/blob/main/src/img/asikaback.png?raw=true' alt="background" />
+                <img className=' absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-[65%] w-[40vw] max-w-none' src='https://github.com/penguin-hack-f/penguin-hack-f/blob/main/src/img/asikaBack2.png?raw=true' alt="background" />
             </div>
 
 
