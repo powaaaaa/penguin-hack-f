@@ -1,0 +1,9 @@
+.box {
+  background-color: rgba(215, 232, 230, 0.6);
+}
+
+.Asika-background{
+  height: 100vh;
+  /* background-image: url("../img/asikaback.png"); */
+  background-size:cover;
+}

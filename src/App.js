@@ -7,7 +7,7 @@ import Login from './Components/Login';
 
 function App() {
   return (
-    <div>
+    <div className='bg-teal-100 App'>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
