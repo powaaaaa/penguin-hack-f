@@ -1,12 +1,6 @@
-import { React, useState } from 'react';
+import React from 'react';
 
-const RadioButton =() => {
-    const [inputTodo, setInputTodo] = useState({ 
-        todo:"", 
-        difficulty:"かんたん", 
-        motivation:"ある！", 
-        category:"せいかつ" 
-    });
+const RadioButton =(props) => {
     const TAG_VALUE = [
         { labelname: 'difficulty', values: ['かんたん', 'ふつう', 'むずかしい'] },
         { labelname: 'motivation', values: ['ある！', 'そこそこ', 'ない…'] },
@@ -15,18 +9,18 @@ const RadioButton =() => {
 
     const handleChange = (event) => {
         console.log(event)
-        setInputTodo({
-            ...inputTodo,
+        props.setInputTodo({
+            ...props.inputTodo,
             [event.target.name]:event.target.value
         });
     };
 
     return (
-        <form class="place-content-center w-10/12 mx-auto md:max-w-md">
+        <form class="mx-auto md:max-w-md">
             {
                 TAG_VALUE.map(({labelname, values}) =>
-                <ul class="flex flex-row border-2 rounded" key={labelname}>
-                    <label class="pr-4">{labelname}</label><p>
+                <ul class="flex flex-row border-2 rounded mb-4" key={labelname}>
+                    <label>{labelname}</label><p>
                     {
                         values.map((value, valueindex) => 
                             <li  key={valueindex}>
@@ -34,7 +28,7 @@ const RadioButton =() => {
                                     name={labelname}
                                     type="radio"
                                     value={value}
-                                    defaultChecked={value === inputTodo[labelname]}
+                                    defaultChecked={value === props.inputTodo[labelname]}
                                     onChange={handleChange}
                                     class="hover:bg-slate-300"
                             />

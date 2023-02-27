@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
-import Todo from "./Todo";
+import List from './List';
 import RadioButton from './RadioButton';
+import Asika from './Asika';
 
 const TodoList = () => {
     const data = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []
@@ -49,37 +50,33 @@ const TodoList = () => {
     };
 
     return(
-        <div>
-            <h1>TodoList</h1>
-            <form class="w-10/12 mx-auto md:max-w-md">
-                <label class="block">
-                    <label >Todoを入力してね</label>
-                    <input class="w-full py-2 border-2 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50" placeholder="todo" name="content" type="text" value={inputTodo.content} onChange={handleChange}/>
-                </label>
+        <div className='flex justify-around'>
+
+
+            <form>
                 <div className="contents">
-                    <RadioButton />
+                    <label>Todoを入力してね</label>
+                    <input class="w-full mx-auto md:max-w-m py-2 border-2 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50" placeholder="todo" name="content" type="text" value={inputTodo.content} onChange={handleChange}/>
                 </div>
-                <button class="rounded hover:bg-slate-00" onClick={handleAddTodo}>追加</button>
+
+                <div className="pt-7">
+                    <label>どんなTodo？？</label>
+                    <RadioButton inputTodo={inputTodo} setInputTodo={setInputTodo}/>
+                </div>
+
+                <button class="place-content-center p-3 rounded hover:bg-slate-200" onClick={handleAddTodo}>追加</button>
             </form>
-            <ul style={{listStyle: "none"}}>
-                {
-                   todos.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <Todo 
-                                    content={item.content} 
-                                    tagDifficulty={item.tagDifficulty} 
-                                    tagMotivation={item.tagMotivation} 
-                                    tagCategory={item.tagCategory}
-                                    index={index}
-                                    todos={todos}
-                                    setTodos={setTodos}
-                                />
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+
+
+            <div>
+                <Asika />
+            </div>
+
+
+            <div>
+                <List todos={todos} setTodos={setTodos} />
+            </div>
+
         </div>
     )
 }
