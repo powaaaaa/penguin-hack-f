@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 const Page1 = () => {
     return (
         <div>
-            <h1>Login</h1>
-            <li><Link to="/Home">Home</Link></li>
+            <div className='flex justify-center items-center'>
+                <Link to="/Home">Home</Link>
+            </div>
         </div>
     );
 }
