@@ -30,6 +30,7 @@ const TodoList = () => {
                     tagCategory: inputTodo.category
                 }
             ])
+            //apiをたたく
         }
         setInputTodo({ 
             content:"", 
@@ -50,14 +51,19 @@ const TodoList = () => {
     return(
         <div>
             <h1>TodoList</h1>
-            <input name="content" type="text" value={inputTodo.content} onChange={handleChange}/>
-            <div className="contents">
-                <RadioButton />
-            </div>
-            <button onClick={handleAddTodo}>追加</button>
+            <form class="w-10/12 mx-auto md:max-w-md">
+                <label class="block">
+                    <label >Todoを入力してね</label>
+                    <input class="w-full py-2 border-2 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50" placeholder="todo" name="content" type="text" value={inputTodo.content} onChange={handleChange}/>
+                </label>
+                <div className="contents">
+                    <RadioButton />
+                </div>
+                <button class="rounded hover:bg-slate-00" onClick={handleAddTodo}>追加</button>
+            </form>
             <ul style={{listStyle: "none"}}>
                 {
-                    todos.map((item, index) => {
+                   todos.map((item, index) => {
                         return (
                             <li key={index}>
                                 <Todo 

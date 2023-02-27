@@ -7,12 +7,15 @@ import Page1 from './Components/Page1';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="page1" element={<Page1 />} />
-      </ Routes>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="page1" element={<Page1 />} />
+        </ Routes>
+      </BrowserRouter>
+
+    </div>
   );
 }
 
