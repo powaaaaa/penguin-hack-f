@@ -1,4 +1,13 @@
 import React from "react";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
+import Battery20Icon from "@mui/icons-material/Battery20";
+import Battery60Icon from "@mui/icons-material/Battery60";
+import BatteryFullIcon from "@mui/icons-material/BatteryFull";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 
 const RadioButton = (props) => {
   const TAG_VALUE = [
@@ -15,10 +24,10 @@ const RadioButton = (props) => {
   };
 
   return (
-    <form class="mx-auto md:max-w-md">
+    <form className="mx-auto md:max-w-md">
       {TAG_VALUE.map(({ labelname, values }) => (
         <ul
-          class="flex flex-raw border-2 border-[#aaddcc] rounded mt-4"
+          className="p-2 flex flex-raw bg-[#bfe7e5] rounded mt-4"
           key={labelname}
         >
           <label className="flex-none w-32">{labelname}</label>
@@ -32,13 +41,32 @@ const RadioButton = (props) => {
                   value={value}
                   defaultChecked={value === props.inputTodo[labelname]}
                   onChange={handleChange}
-                  class="hidden"
                 />
-                <label
-                  for={valueindex}
-                  className="flex flex-col rounded-lg hover:bg-amber-200 checked:bg-green-300"
-                >
+                <label>
                   {value}
+                  {labelname === "difficulty" ? (
+                    value === "かんたん" ? (
+                      <SentimentVerySatisfiedIcon />
+                    ) : value === "ふつう" ? (
+                      <SentimentSatisfiedAltIcon />
+                    ) : (
+                      <SentimentVeryDissatisfiedIcon />
+                    )
+                  ) : labelname === "motivation" ? (
+                    value === "ある！" ? (
+                      <BatteryFullIcon />
+                    ) : value === "そこそこ" ? (
+                      <Battery60Icon />
+                    ) : (
+                      <Battery20Icon />
+                    )
+                  ) : value === "せいかつ" ? (
+                    <RestaurantIcon />
+                  ) : value === "イベント" ? (
+                    <EventAvailableIcon />
+                  ) : (
+                    <TipsAndUpdatesIcon />
+                  )}
                 </label>
               </li>
             ))}
