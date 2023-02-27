@@ -3,9 +3,13 @@ import Todo from "./Todo";
 
 const List = (props) => {
     return (
-        <ul style={{listStyle: "none"}}>
+        <div>
+            <ul>
+                <h2 className="ml-5  text-2xl">
+                    Your Todo!!
+                </h2>
                 {
-                   props.todos.map((item, index) => {
+                    props.todos.map((item, index) => {
                         return (
                             <li key={index}>
                                 <Todo 
@@ -22,6 +26,7 @@ const List = (props) => {
                     })
                 }
             </ul>
+        </div>
     )
 }
 

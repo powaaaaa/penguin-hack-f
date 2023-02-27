@@ -4,7 +4,7 @@ import TodoList from './TodoList';
 const Home = () => {
     return (
         <div >
-                <TodoList  />
+            <TodoList  />
         </div>
     );
 }
