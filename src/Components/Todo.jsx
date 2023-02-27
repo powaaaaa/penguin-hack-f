@@ -8,7 +8,10 @@ const Todo = (props) => {
   };
 
   return (
-    <div class="my-3 overflow-x-auto">
+    <div
+      class="my-3 overflow-x-auto border-2:w
+    "
+    >
       <div className="flex">
         <li className="truncate w-3/5">{props.content}</li>
       </div>
