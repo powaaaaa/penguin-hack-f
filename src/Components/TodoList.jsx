@@ -3,6 +3,7 @@ import List from "./List";
 import RadioButton from "./RadioButton";
 import "./color.css";
 import Asika from "./Asika";
+import userEvent from "@testing-library/user-event";
 const TodoList = () => {
   const data = localStorage.getItem("todos")
     ? JSON.parse(localStorage.getItem("todos"))
@@ -14,10 +15,22 @@ const TodoList = () => {
     category: "せいかつ",
   });
   const [todos, setTodos] = useState(data);
+  const [name, setName] = useState("");
+
+  async function getUserInfo() {
+    const response = await fetch("/.auth/me");
+    const payload = await response.json();
+    const { clientPrincipal } = payload;
+    return clientPrincipal;
+  }
   useEffect(() => {
+    (async () => {
+      const response = await getUserInfo();
+      setName(response.userDetails);
+    })();
     const json = JSON.stringify(todos);
     localStorage.setItem("todos", json);
-  }, [todos]);
+  }, [todos, name]);
   const handleAddTodo = () => {
     if (inputTodo.content === "") {
       alert("空文字は追加出来ません");
@@ -51,6 +64,7 @@ const TodoList = () => {
   return (
     <div className="flex h-screen">
       <form className="shadow-md m-7 p-7 w-1/3 box subpixel-antialiased">
+        <div className="text-2xl font-semibold mb-10">{name}</div>
         <div className="content">
           <label>Todoを入力してね</label>
           <div className="flex justify-center">
