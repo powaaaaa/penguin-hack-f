@@ -10,12 +10,7 @@ const List = (props) => {
           {props.todos.map((item, index) => {
             return (
               <li key={index}>
-                <Todo
-                  {...item}
-                  index={index}
-                  todos={props.todos}
-                  setTodos={props.setTodos}
-                />
+                <Todo {...item} />
               </li>
             );
           })}

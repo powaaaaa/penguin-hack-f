@@ -54,30 +54,28 @@ const TodoList = () => {
 
   return (
     <div className="flex h-screen">
-      <form className="shadow-md m-7 p-7 w-1/3 box subpixel-antialiased">
+      <form className="shadow-md m-7 p-8 w-1/3 box subpixel-antialiased">
         <div className="content">
-          <label>Todoを入力してね</label>
-          <div className="flex justify-center">
-            <input
-              className="border-2 rounded-lg pb-1 px-7 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-amber-600"
-              placeholder="がんばれ！"
-              name="content"
-              type="text"
-              value={inputTodo.content}
-              onChange={handleChange}
-              autoFocus
-            />
-          </div>
+          <label className="pr-4">Todoを入力してね</label>
+          <input
+            class="py-2 border-2 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-amber-600"
+            placeholder="todo"
+            name="content"
+            type="text"
+            value={inputTodo.content}
+            onChange={handleChange}
+            autoFocus
+          />
         </div>
 
-        <div className="pt-4 flex flex-col">
+        <div className="pt-7 flex flex-col">
           <label>どんなTodo？？</label>
           <RadioButton inputTodo={inputTodo} setInputTodo={setInputTodo} />
         </div>
 
-        <div className="my-2 text-center">
+        <div className="text-center">
           <button
-            className="p-1 border-2 border-[#aaddcc] rounded hover:bg-amber-200 hover:border-amber-600"
+            class=" p-1 border-2 border-[#aaddcc] rounded hover:bg-amber-200 hover:border-amber-600"
             onClick={handleAddTodo}
           >
             追加
