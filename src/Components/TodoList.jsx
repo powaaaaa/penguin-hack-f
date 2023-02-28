@@ -54,7 +54,7 @@ const TodoList = () => {
 
   return (
     <div className="flex h-screen">
-      <form className="shadow-md m-7 p-7 w-1/3 box subpixel-antialiased">
+      <form className="shadow-md m-7 p-8 w-1/3 box subpixel-antialiased">
         <div className="content">
           <label>Todoを入力してね</label>
           <div className="flex justify-center">
@@ -70,12 +70,12 @@ const TodoList = () => {
           </div>
         </div>
 
-        <div className="pt-4 flex flex-col">
+        <div className="pt-7 flex flex-col">
           <label>どんなTodo？？</label>
           <RadioButton inputTodo={inputTodo} setInputTodo={setInputTodo} />
         </div>
 
-        <div className="my-2 text-center">
+        <div className="text-center">
           <button
             className="p-1 border-2 border-[#aaddcc] rounded hover:bg-[#c3ede7] hover:border-[#7f9494]"
             onClick={handleAddTodo}

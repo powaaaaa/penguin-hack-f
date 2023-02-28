@@ -24,7 +24,7 @@ const RadioButton = (props) => {
   };
 
   return (
-    <form className="mx-auto md:max-w-md">
+    <form class="mx-auto md:max-w-md">
       {TAG_VALUE.map(({ labelname, values }) => (
         <ul
           className="p-2 flex flex-raw bg-[#bfe7e5] rounded-lg mt-4"
