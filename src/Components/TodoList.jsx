@@ -3,7 +3,6 @@ import List from "./List";
 import RadioButton from "./RadioButton";
 import "./color.css";
 import Asika from "./Asika";
-
 const TodoList = () => {
   const data = localStorage.getItem("todos")
     ? JSON.parse(localStorage.getItem("todos"))
@@ -15,12 +14,10 @@ const TodoList = () => {
     category: "せいかつ",
   });
   const [todos, setTodos] = useState(data);
-
   useEffect(() => {
     const json = JSON.stringify(todos);
     localStorage.setItem("todos", json);
   }, [todos]);
-
   const handleAddTodo = () => {
     if (inputTodo.content === "") {
       alert("空文字は追加出来ません");
@@ -43,7 +40,6 @@ const TodoList = () => {
       category: "せいかつ",
     });
   };
-
   const handleChange = (event) => {
     console.log(event);
     setInputTodo({
@@ -54,12 +50,12 @@ const TodoList = () => {
 
   return (
     <div className="flex h-screen">
-      <form className="shadow-md m-7 p-8 w-1/3 box subpixel-antialiased">
+      <form className="shadow-md m-7 p-7 w-1/3 box subpixel-antialiased">
         <div className="content">
           <label>Todoを入力してね</label>
           <div className="flex justify-center">
             <input
-              className="border-2 rounded-lg pb-1 px-7 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-[#e8b37a]"
+              className="border-2 rounded-lg pb-1 px-7 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-amber-600"
               placeholder="がんばれ！"
               name="content"
               type="text"
@@ -70,21 +66,20 @@ const TodoList = () => {
           </div>
         </div>
 
-        <div className="pt-7 flex flex-col">
+        <div className="pt-4 flex flex-col">
           <label>どんなTodo？？</label>
           <RadioButton inputTodo={inputTodo} setInputTodo={setInputTodo} />
         </div>
 
-        <div className="text-center">
+        <div className="my-2 text-center">
           <button
-            className="p-1 border-2 border-[#aaddcc] rounded hover:bg-[#c3ede7] hover:border-[#7f9494]"
+            className="p-1 border-2 border-[#aaddcc] rounded hover:bg-amber-200 hover:border-amber-600"
             onClick={handleAddTodo}
           >
             追加
           </button>
         </div>
       </form>
-
       <div className="rounded-lg w-1/3 relative overflow-hidden my-7">
         <Asika status={todos.length}></Asika>
         <img
@@ -94,12 +89,12 @@ w-[40vw] max-w-none"
           alt="background"
         />
       </div>
-
       <div className="shadow-md rounded-lg m-7 p-8 box w-1/3">
-        <List todos={todos} setTodos={setTodos} />
+        <div>
+          <List todos={todos} setTodos={setTodos} />
+        </div>
       </div>
     </div>
   );
 };
-
 export default TodoList;
