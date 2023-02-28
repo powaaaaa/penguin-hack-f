@@ -11,7 +11,7 @@ const Page1 = () => {
       <div className="flex justify-center box-api">
         <a
           className="mr-24"
-          href="http://localhost:4280/.auth/login/github?post_login_redirect_uri=/Home"
+          href="/.auth/login/github?post_login_redirect_uri=/Home"
         >
           <img className="h-24" src="../img/github-mark.svg" />
         </a>
