@@ -30,7 +30,7 @@ const RadioButton = (props) => {
           className="p-2 flex flex-raw bg-[#bfe7e5] rounded-lg mt-4"
           key={labelname}
         >
-          <label className="flex-none w-24">
+          <label className="flex-none w-32">
             <div className="flex justify-center">{labelname}</div>
           </label>
           <div className="flex justify-center">

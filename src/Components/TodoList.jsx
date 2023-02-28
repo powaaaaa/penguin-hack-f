@@ -73,7 +73,7 @@ const TodoList = () => {
 
         <div className="my-2 text-center">
           <button
-            className="p-1 border-2 border-[#aaddcc] rounded hover:bg-amber-200 hover:border-amber-600"
+            className="p-1 border-2 border-[#aaddcc] rounded hover:bg-[#bddded] hover:border-[#637491]"
             onClick={handleAddTodo}
           >
             追加
