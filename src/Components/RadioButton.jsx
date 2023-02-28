@@ -27,50 +27,54 @@ const RadioButton = (props) => {
     <form className="mx-auto md:max-w-md">
       {TAG_VALUE.map(({ labelname, values }) => (
         <ul
-          className="p-2 flex flex-raw bg-[#bfe7e5] rounded mt-4"
+          className="p-2 flex flex-raw bg-[#bfe7e5] rounded-lg mt-4"
           key={labelname}
         >
-          <label className="flex-none w-32">{labelname}</label>
-          <p>
-            {values.map((value, valueindex) => (
-              <li key={valueindex}>
-                <input
-                  id={valueindex}
-                  name={labelname}
-                  type="radio"
-                  value={value}
-                  defaultChecked={value === props.inputTodo[labelname]}
-                  onChange={handleChange}
-                />
-                <label>
-                  {value}
-                  {labelname === "difficulty" ? (
-                    value === "かんたん" ? (
-                      <SentimentVerySatisfiedIcon />
-                    ) : value === "ふつう" ? (
-                      <SentimentSatisfiedAltIcon />
+          <label className="flex-none w-24">
+            <div className="flex justify-center">{labelname}</div>
+          </label>
+          <div className="flex justify-center">
+            <p>
+              {values.map((value, valueindex) => (
+                <li key={valueindex}>
+                  <input
+                    id={value}
+                    name={labelname}
+                    type="radio"
+                    value={value}
+                    defaultChecked={value === props.inputTodo[labelname]}
+                    onChange={handleChange}
+                  />
+                  <label for={value}>
+                    {value}
+                    {labelname === "difficulty" ? (
+                      value === "かんたん" ? (
+                        <SentimentVerySatisfiedIcon />
+                      ) : value === "ふつう" ? (
+                        <SentimentSatisfiedAltIcon />
+                      ) : (
+                        <SentimentVeryDissatisfiedIcon />
+                      )
+                    ) : labelname === "motivation" ? (
+                      value === "ある！" ? (
+                        <BatteryFullIcon />
+                      ) : value === "そこそこ" ? (
+                        <Battery60Icon />
+                      ) : (
+                        <Battery20Icon />
+                      )
+                    ) : value === "せいかつ" ? (
+                      <RestaurantIcon />
+                    ) : value === "イベント" ? (
+                      <EventAvailableIcon />
                     ) : (
-                      <SentimentVeryDissatisfiedIcon />
-                    )
-                  ) : labelname === "motivation" ? (
-                    value === "ある！" ? (
-                      <BatteryFullIcon />
-                    ) : value === "そこそこ" ? (
-                      <Battery60Icon />
-                    ) : (
-                      <Battery20Icon />
-                    )
-                  ) : value === "せいかつ" ? (
-                    <RestaurantIcon />
-                  ) : value === "イベント" ? (
-                    <EventAvailableIcon />
-                  ) : (
-                    <TipsAndUpdatesIcon />
-                  )}
-                </label>
-              </li>
-            ))}
-          </p>
+                      <TipsAndUpdatesIcon />
+                    )}
+                  </label>
+                </li>
+              ))}
+            </p>
+          </div>
         </ul>
       ))}
     </form>

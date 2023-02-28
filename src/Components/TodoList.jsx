@@ -59,7 +59,7 @@ const TodoList = () => {
           <label>Todoを入力してね</label>
           <div className="flex justify-center">
             <input
-              className="border-2 rounded-lg pb-1 px-7 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-amber-600"
+              className="border-2 rounded-lg pb-1 px-7 hover:bg-gray-200 focus:outline-none focus:border-b-2 focus:border-[#e8b37a]"
               placeholder="がんばれ！"
               name="content"
               type="text"
@@ -77,7 +77,7 @@ const TodoList = () => {
 
         <div className="my-2 text-center">
           <button
-            className="p-1 border-2 border-[#aaddcc] rounded hover:bg-amber-200 hover:border-amber-600"
+            className="p-1 border-2 border-[#aaddcc] rounded hover:bg-[#c3ede7] hover:border-[#7f9494]"
             onClick={handleAddTodo}
           >
             追加
@@ -96,9 +96,7 @@ w-[40vw] max-w-none"
       </div>
 
       <div className="shadow-md rounded-lg m-7 p-8 box w-1/3">
-        <div>
-          <List todos={todos} setTodos={setTodos} />
-        </div>
+        <List todos={todos} setTodos={setTodos} />
       </div>
     </div>
   );

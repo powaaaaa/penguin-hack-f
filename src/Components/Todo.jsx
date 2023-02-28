@@ -17,7 +17,7 @@ const Todo = (props) => {
   };
 
   return (
-    <div className="pb-2 my-3 overflow-x-auto flex flex-col border-2 border-[#aaddcc] rounded mt-4">
+    <div className="pb-2 my-3 overflow-x-auto flex flex-col bg-[#bfe7e5] rounded-lg mt-4">
       <div className="flex flex-col">
         <li className="truncate w-3/5 pl-3">{props.content}</li>
       </div>
@@ -61,7 +61,7 @@ const Todo = (props) => {
           </div>
         </li>
         <button
-          className="ml-3 px-1 border-2 rounded-lg border-[#aaddcc] hover:bg-amber-200 hover:border-amber-600"
+          className="ml-3 px-1 border-2 rounded-lg border-[#aaddcc] hover:bg-[#b0e7df] hover:border-[#638181]"
           onClick={handleTodoDelete}
         >
           完了
