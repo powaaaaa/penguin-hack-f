@@ -15,7 +15,7 @@
     },
     {
       "route": "/",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": ["anonymous"]
     },
     {
       "route": "/Home",
@@ -31,7 +31,7 @@
       "rewrite": "/invalid-invitation-error.html"
     },
     "401": {
-      "redirect": "/.auth/login/google?post_login_redirect_uri=/Home",
+      "redirect": "/.auth/login/github?post_login_redirect_uri=/Home",
       "statusCode": 302
     },
     "403": {
